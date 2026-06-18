@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kuis CBP Rupiah — CBP Rupiah</title>
+    <meta name="description" content="Landing page kuis interaktif CBP Rupiah.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="page-bg" aria-hidden="true"></div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="orb orb-red" aria-hidden="true"></div>
+    <div class="orb orb-blue" aria-hidden="true"></div>
+
+    <header class="topbar" id="topbar">
+    <a class="brand " href="index.html" aria-label="Kembali ke beranda">
+                    <img src="assets/img/logo-bi.png" alt="Logo Bank Indonesia" class="logo-bi" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+            <span class="bi-seal logo-fallback" aria-hidden="true">BI</span>
+        
+        <span class="brand-copy">
+            <strong>BANK INDONESIA</strong>
+            <small>Bank Sentral Republik Indonesia</small>
+        </span>
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Navigasi utama">
+                    <a class="nav-link " href="index.html">Beranda</a>
+                    <a class="nav-link " href="cbp.html">CBP Rupiah</a>
+                    <a class="nav-link " href="sejarah-rupiah.html">Sejarah Rupiah</a>
+                    <a class="nav-link " href="qris.html">QRIS</a>
+                    <a class="nav-link active" href="kuis.html">Kuis</a>
+                    <a class="nav-link " href="rupiah-3d.html">Rupiah 3D</a>
+                    <a class="nav-link " href="tentang-website.html">Tentang Website</a>
+            </nav>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+    <main>
+        <section class="single-landing quiz-landing" id="kuis">
+            <div class="skyline" aria-hidden="true">
+                <span class="monas"></span>
+                <span class="building b1"></span>
+                <span class="building b2"></span>
+                <span class="bridge"></span>
+            </div>
+            <div class="flag-ribbon ribbon-left" aria-hidden="true"></div>
+            <div class="flag-ribbon ribbon-right" aria-hidden="true"></div>
+
+            <div class="single-wrap quiz-wrap">
+                <article class="single-panel blue reveal" data-tilt>
+                    <span class="page-number">03</span>
+                    <div class="single-letter">K</div>
+                    <p class="eyebrow">Landing Page</p>
+                    <h1>Kuis CBP</h1>
+                    <p class="single-lead">Uji pemahaman tentang sejarah Rupiah, QRIS, 3D, dan 5J. Kuis ini dibuat singkat agar pengunjung bisa belajar sambil berinteraksi.</p>
+                    <div class="single-actions">
+                        <a class="card-button" href="#quizBox">Mulai Kuis <span>↓</span></a>
+                        <a class="outline-link" href="cbp.html">Pelajari CBP</a><a class="outline-link" href="index.html">Kembali ke Beranda</a>
+                    </div>
+                </article>
+
+                <div class="single-content reveal delay-2">
+                    <p class="eyebrow">Interaktif</p>
+                    <h2>Jawab pertanyaan dan lihat skor otomatis</h2>
+                    <div class="quiz-box" id="quizBox">
+                        <div class="quiz-top">
+                            <span id="quizCounter">Pertanyaan 1</span>
+                            <div class="progress"><span id="progressBar"></span></div>
+                        </div>
+                        <h3 id="questionText">Memuat pertanyaan...</h3>
+                        <div class="answers" id="answers"></div>
+                        <p class="feedback" id="feedback"></p>
+                        <div class="quiz-actions">
+                            <button class="primary-btn" id="nextBtn" type="button">Jawab</button>
+                            <button class="secondary-btn" id="restartBtn" type="button" hidden>Ulangi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer footer-minimal">
+    <div class="footer-mini-inner">
+        <p><strong>CBP Rupiah</strong> — Media edukasi tentang CBP Rupiah kepada masyarakat Indonesia.</p>
+        <a href="tentang-website.html">Tentang Website</a>
+    </div>
+    <p class="copyright">© 2026 Media Edukasi CBP Rupiah.</p>
+</footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Kembali ke atas">↑</button>
+    <script>
+        window.CBP_QUIZ = [{"question":"Apa kepanjangan CBP dalam edukasi Rupiah?","answers":["Cek Bayar Pakai Rupiah","Cinta Bangga Paham Rupiah","Catat Belanja Pakai Rupiah","Cerdas Bertransaksi Pakai Rupiah"],"correct":1,"note":"CBP berarti Cinta, Bangga, dan Paham Rupiah."},{"question":"Metode 3D untuk mengenali keaslian Rupiah adalah...","answers":["Dilihat, Diraba, Diterawang","Dihitung, Ditukar, Disetor","Dibayar, Disimpan, Dicatat","Dilacak, Dipindai, Dicairkan"],"correct":0,"note":"3D berarti Dilihat, Diraba, dan Diterawang."},{"question":"Salah satu perilaku yang tidak sesuai prinsip 5J adalah...","answers":["Menyimpan uang dengan rapi","Menggunakan Rupiah untuk transaksi","Mencoret uang kertas","Mengecek uang dengan 3D"],"correct":2,"note":"Dalam 5J, masyarakat diingatkan untuk tidak mencoret uang Rupiah."},{"question":"QRIS paling tepat dipahami sebagai...","answers":["Aplikasi dompet digital tertentu","Standar kode QR pembayaran di Indonesia","Jenis uang kertas baru","Kode rahasia rekening bank"],"correct":1,"note":"QRIS adalah standar kode QR pembayaran nasional."},{"question":"Saat membayar dengan QRIS, hal yang sebaiknya dilakukan adalah...","answers":["Langsung pergi tanpa cek status","Cek nama merchant dan nominal transaksi","Membagikan PIN aplikasi pembayaran","Scan QR dari sumber tidak jelas"],"correct":1,"note":"Selalu cek nama merchant, nominal, dan status transaksi."}];
+    </script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+.rupiah3d-page{
+    min-height:100vh;
+    position:relative;
+    width:min(100%,1680px);
+    margin:0 auto;
+    padding:132px 22px 48px;
+    overflow:hidden;
+}
+
+.rupiah3d-intro{
+    position:relative;
+    z-index:4;
+    width:min(var(--max),100%);
+    margin:0 auto 22px;
+    padding:34px 38px;
+    border-radius:var(--radius-xl);
+    background:rgba(255,255,255,.80);
+    border:1px solid rgba(255,255,255,.82);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(18px);
+}
+
+.rupiah3d-intro h1{
+    margin:0;
+    line-height:.92;
+    font-size:clamp(52px,8vw,108px);
+    font-weight:1000;
+    letter-spacing:-.08em;
+    color:var(--blue-dark);
+    text-shadow:0 4px 0 rgba(255,255,255,.88),0 20px 38px rgba(9,25,58,.16);
+}
+
+.rupiah3d-intro h1 span{color:var(--red)}
+
+.rupiah3d-intro p:not(.eyebrow){
+    max-width:860px;
+    color:var(--muted);
+    font-size:17px;
+    font-weight:650;
+    line-height:1.72;
+    margin:16px 0 0;
+}
+
+.rupiah3d-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+.rupiah3d-workspace{
+    position:relative;
+    z-index:4;
+    width:min(var(--max),100%);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:310px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+}
+
+.rupiah3d-selector,.rupiah3d-viewer{
+    border:1px solid rgba(255,255,255,.78);
+    background:rgba(255,255,255,.76);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(18px);
+    border-radius:var(--radius-xl);
+}
+
+.rupiah3d-selector{padding:22px;position:sticky;top:108px}
+
+.selector-head h2{margin:0 0 8px;font-size:26px;letter-spacing:-.05em}
+.selector-head p:not(.eyebrow){color:var(--muted);margin:0 0 16px;line-height:1.58;font-weight:650}
+
+.rupiah3d-denom-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+
+.denom-btn{
+    border:1px solid rgba(10,78,163,.13);
+    min-height:62px;
+    border-radius:18px;
+    background:#fff;
+    cursor:pointer;
+    box-shadow:0 12px 26px rgba(9,25,58,.08);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    padding:10px 12px;
+    transition:.22s ease;
+    color:var(--ink);
+}
+
+.denom-btn strong{font-size:16px;letter-spacing:-.03em}
+.denom-btn span{color:var(--muted);font-size:11px;font-weight:800;margin-top:4px}
+.denom-btn:hover{transform:translateY(-3px)}
+.denom-btn.active{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--red),var(--blue))}
+.denom-btn.active span{color:rgba(255,255,255,.82)}
+
+.rupiah3d-note{
+    margin-top:16px;
+    padding:15px;
+    border-radius:20px;
+    background:rgba(227,34,40,.08);
+    border:1px solid rgba(227,34,40,.14);
+    color:#5f1b22;
+    line-height:1.55;
+    font-size:13px;
+}
+
+.rupiah3d-note strong{display:block;margin-bottom:4px}
+
+.rupiah3d-viewer{padding:22px;min-width:0}
+
+.viewer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+
+.viewer-label{
+    display:block;
+    margin-bottom:4px;
+    font-size:11px;
+    font-weight:1000;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--muted);
+}
+
+.viewer-top h2{margin:0;font-size:36px;letter-spacing:-.05em;color:var(--blue-dark)}
+.viewer-top p{margin:2px 0 0;color:var(--muted);font-weight:800}
+
+.viewer-hints{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.viewer-hints span{padding:9px 11px;border-radius:999px;background:#e8f1ff;color:var(--blue);font-size:12px;font-weight:900}
+
+.rupiah3d-stage{
+    position:relative;
+    min-height:520px;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    perspective:1400px;
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 50% 35%,rgba(255,255,255,.92),transparent 36%),
+        radial-gradient(circle at 20% 78%,rgba(227,34,40,.14),transparent 30%),
+        radial-gradient(circle at 86% 72%,rgba(10,78,163,.16),transparent 34%),
+        linear-gradient(180deg,rgba(255,255,255,.58),rgba(232,241,255,.72));
+    border:1px solid rgba(255,255,255,.84);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.88);
+    touch-action:none;
+    user-select:none;
+}
+
+.rupiah3d-stage::before{
+    content:"";
+    position:absolute;
+    inset:auto 9% 34px;
+    height:44px;
+    border-radius:50%;
+    background:rgba(9,25,58,.22);
+    filter:blur(24px);
+    transform:scaleX(.86);
+}
+
+.money3d{
+    --w:min(74vw,820px);
+    --h:calc(var(--w) * .47);
+    --d:18px;
+    position:relative;
+    width:var(--w);
+    height:var(--h);
+    transform-style:preserve-3d;
+    transform:rotateX(var(--rx,-7deg)) rotateY(var(--ry,20deg)) scale(var(--scale,1));
+    transition:transform .05s linear;
+    outline:none;
+}
+
+.money-face{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    border-radius:20px;
+    background:#ddd;
+    transform-style:preserve-3d;
+    backface-visibility:hidden;
+    border:1px solid rgba(255,255,255,.74);
+    box-shadow:0 30px 80px rgba(9,25,58,.25),inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.money-front{transform:translateZ(calc(var(--d) / 2))}
+.money-back{transform:rotateY(180deg) translateZ(calc(var(--d) / 2))}
+
+.money-face img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(1.04) contrast(1.03)}
+
+.money-face::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(105deg,rgba(255,255,255,.28),transparent 28%,transparent 70%,rgba(255,255,255,.18)),
+        radial-gradient(circle at 22% 18%,rgba(255,255,255,.28),transparent 17%);
+    mix-blend-mode:screen;
+    opacity:.65;
+}
+
+.overlay-specimen{
+    position:absolute;
+    z-index:5;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-18deg);
+    font-size:clamp(48px,8vw,112px);
+    font-weight:1000;
+    letter-spacing:.03em;
+    color:rgba(190,20,30,.35);
+    -webkit-text-stroke:1px rgba(255,255,255,.30);
+    pointer-events:none;
+}
+
+.overlay-note{
+    position:absolute;
+    z-index:6;
+    right:18px;
+    top:16px;
+    padding:8px 11px;
+    border-radius:999px;
+    color:#fff;
+    background:rgba(0,0,0,.30);
+    border:1px solid rgba(255,255,255,.34);
+    font-size:11px;
+    letter-spacing:.10em;
+    font-weight:1000;
+    pointer-events:none;
+}
+
+.edge{position:absolute;background:linear-gradient(90deg,#af1a23,#0b4c9c);opacity:.88;border-radius:8px;box-shadow:inset 0 0 18px rgba(0,0,0,.28)}
+.edge-top,.edge-bottom{left:10px;right:10px;height:var(--d)}
+.edge-top{top:calc(var(--d) / -2);transform:rotateX(90deg);transform-origin:bottom}
+.edge-bottom{bottom:calc(var(--d) / -2);transform:rotateX(-90deg);transform-origin:top}
+.edge-left,.edge-right{top:10px;bottom:10px;width:var(--d)}
+.edge-left{left:calc(var(--d) / -2);transform:rotateY(-90deg);transform-origin:right}
+.edge-right{right:calc(var(--d) / -2);transform:rotateY(90deg);transform-origin:left}
+
+.rupiah3d-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.rupiah3d-meta article{padding:16px;border-radius:20px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.80);box-shadow:0 12px 30px rgba(9,25,58,.08)}
+.rupiah3d-meta strong{display:block;color:var(--blue-dark);margin-bottom:6px}
+.rupiah3d-meta span{color:var(--muted);line-height:1.55;font-size:13px;font-weight:650}
+
+@media (max-width:1180px){
+    .rupiah3d-workspace{grid-template-columns:1fr}
+    .rupiah3d-selector{position:relative;top:auto}
+    .rupiah3d-denom-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+@media (max-width:920px){
+    .rupiah3d-page{padding-top:118px}
+    .rupiah3d-intro{padding:26px}
+    .rupiah3d-denom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .rupiah3d-stage{min-height:430px}
+    .viewer-top{flex-direction:column}
+    .viewer-hints{justify-content:flex-start}
+    .money3d{--w:88vw}
+    .rupiah3d-meta{grid-template-columns:1fr}
+}
+
+@media (max-width:560px){
+    .rupiah3d-page{padding-left:12px;padding-right:12px}
+    .rupiah3d-intro,.rupiah3d-selector,.rupiah3d-viewer{padding:18px;border-radius:24px}
+    .rupiah3d-intro h1{font-size:54px}
+    .rupiah3d-stage{min-height:350px;border-radius:22px}
+    .money3d{--w:91vw;--d:13px}
+    .money-face{border-radius:15px}
+    .overlay-specimen{font-size:42px}
+    .overlay-note{right:10px;top:10px;font-size:8px;padding:6px 8px}
+    .rupiah3d-actions{flex-direction:column}
+    .rupiah3d-actions button{width:100%}
+}
