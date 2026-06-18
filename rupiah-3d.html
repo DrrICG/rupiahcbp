@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Rupiah 3D Viewer</title>
+<style>
+body{margin:0;overflow:hidden;background:radial-gradient(circle,#0a4ea3,#050b1a);font-family:Arial}
+#ui{position:absolute;top:20px;left:20px;color:#fff;background:rgba(0,0,0,.4);padding:10px 14px;border-radius:10px}
+</style>
+</head>
+<body>
+<div id="ui">Drag / Swipe untuk rotasi Rupiah 3D</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth,innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const light=new THREE.DirectionalLight(0xffffff,1);
+light.position.set(2,2,5);
+scene.add(light);
+
+// placeholder "note"
+const geo=new THREE.PlaneGeometry(5,2.5);
+const tex=new THREE.TextureLoader().load("https://upload.wikimedia.org/wikipedia/commons/4/4f/Indonesian_rupiah_example_banknote.jpg");
+const mat=new THREE.MeshBasicMaterial({map:tex});
+const mesh=new THREE.Mesh(geo,mat);
+scene.add(mesh);
+
+camera.position.z=6;
+
+let dragging=false,lastX=0;
+
+addEventListener("mousedown",e=>{dragging=true;lastX=e.clientX});
+addEventListener("mouseup",()=>dragging=false);
+addEventListener("mousemove",e=>{
+if(!dragging)return;
+mesh.rotation.y += (e.clientX-lastX)*0.01;
+lastX=e.clientX;
+});
+
+addEventListener("touchmove",e=>{
+const x=e.touches[0].clientX;
+mesh.rotation.y=x*0.01;
+});
+
+function animate(){
+requestAnimationFrame(animate);
+mesh.rotation.y+=0.002;
+renderer.render(scene,camera);
+}
+animate();
+
+addEventListener("resize",()=>{
+camera.aspect=innerWidth/innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(innerWidth,innerHeight);
+});
+</script>
+</body>
+</html>
